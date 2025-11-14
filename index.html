@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mighty TV – UFC 322</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0d0d0d;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        margin: 15px 0 20px 0;
+        color: #ff5757; /* red-ish for UFC theme */
+        text-align: center;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 550px;
+    }
+
+    .card {
+        background: #1a1a1a;
+        padding: 18px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #333;
+        transition: 0.2s;
+        text-decoration: none;
+        display: block;
+        color: white;
+    }
+
+    .card:hover {
+        background: #222;
+        transform: translateY(-4px);
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 6px;
+    }
+
+    .card-desc {
+        font-size: 0.95rem;
+        color: #ccc;
+    }
+
+    .scroll-btn {
+        position: fixed;
+        right: 10px;
+        background: #333;
+        border: none;
+        padding: 12px 16px;
+        color: white;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: 0.25s;
+    }
+
+    .scroll-btn:hover {
+        opacity: 1;
+        background: #444;
+    }
+
+    #scrollUp {
+        bottom: 90px;
+    }
+
+    #scrollDown {
+        bottom: 30px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Mighty TV</h1>
+<h2>UFC 322</h2>
+
+<div class="container" id="sportsLinks"></div>
+
+<button id="scrollUp" class="scroll-btn">▲</button>
+<button id="scrollDown" class="scroll-btn">▼</button>
+
+<script>
+    // UFC 322 LINKS — EDIT THESE ↓↓↓
+    const SPORTS_LINKS = [
+        { title: "Main Event Stream", url: "https://example1.com", desc: "Watch the UFC 322 main card" },
+        { title: "Prelims Stream", url: "https://example2.com", desc: "Preliminary fights LIVE" },
+        { title: "Alternate Link 1", url: "https://example3.com", desc: "Backup HD stream" },
+        { title: "Alternate Link 2", url: "https://example4.com", desc: "Backup mirror stream" },
+        { title: "Fight Card Info", url: "https://example5.com", desc: "Full UFC 322 fight lineup" },
+        { title: "Live Stats", url: "https://example6.com", desc: "Round-by-round updates" }
+    ];
+
+    const container = document.getElementById("sportsLinks");
+
+    // Render UFC 322 Cards
+    SPORTS_LINKS.forEach(link => {
+        const card = document.createElement("a");
+        card.className = "card";
+        card.href = link.url;
+        card.innerHTML = `
+            <div class="card-title">${link.title}</div>
+            <div class="card-desc">${link.desc}</div>
+        `;
+        container.appendChild(card);
+    });
+
+    // Scroll Buttons
+    document.getElementById("scrollUp").onclick = () => {
+        window.scrollBy({ top: -300, behavior: "smooth" });
+    };
+
+    document.getElementById("scrollDown").onclick = () => {
+        window.scrollBy({ top: 300, behavior: "smooth" });
+    };
+</script>
+
+</body>
+</html>
